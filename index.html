@@ -1,74 +1,290 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi Proyecto Final - HTML</title>
-  <meta name="description" content="Página web básica hecha con HTML y publicada en GitHub Pages." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmia aplicada a C y C++ | Guía minimalista</title>
 </head>
-
 <body>
   <header>
-    <h1>Mi Proyecto Final</h1>
-    <p>Esta página fue creada desde cero con HTML y publicada en GitHub Pages.</p>
+    <h1>Aprende sin prisa: la ignorancia es normal y la curiosidad vale la pena</h1>
 
-    <nav>
-      <a href="#sobre-mi">Sobre mí</a> |
-      <a href="#proyecto">Proyecto</a> |
-      <a href="#contacto">Contacto</a>
+    <p>
+      Esta página es una invitación a estudiar algoritmia con calma: aprender es acumular preguntas,
+      no “cerrar” el conocimiento. Si hoy te sientes perdido, perfecto: es una señal de que estás mirando algo real.
+    </p>
+
+    <nav aria-label="Navegación interna">
+      <p><strong>Navega por temas:</strong></p>
+      <ul>
+        <li><a href="#sobre">Sobre la página</a></li>
+        <li><a href="#fundamentos">Fundamentos de algoritmia</a></li>
+        <li><a href="#c">C para algoritmia</a></li>
+        <li><a href="#cpp">C++ para algoritmia</a></li>
+        <li><a href="#estructuras">Estructuras de datos</a></li>
+        <li><a href="#clasicos">Algoritmos clásicos</a></li>
+        <li><a href="#complejidad">Complejidad (Big-O) sin drama</a></li>
+        <li><a href="#retos">Ejercicios y retos</a></li>
+      </ul>
     </nav>
-    <hr />
+
+    <figure>
+  <img src="img/guts_leyendo.jpeg" alt="Guts leyendo, imagen para acompañar una guía de aprendizaje de algoritmia" />
+  <figcaption>
+    Leer, practicar, equivocarse y volver: así se construye la claridad.
+  </figcaption>
+</figure>
+
   </header>
 
   <main>
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>Hola, soy ________. Estoy aprendiendo desarrollo web y este es mi proyecto final.</p>
+    <section id="sobre">
+      <h2>Sobre la página</h2>
+      <p>
+        Me gusta Joji, soy defensor de la RAE (sí: tildes, comas y claridad), y creé esta página para reunir
+        una guía sencilla de algoritmia aplicada a <strong>C</strong> y <strong>C++</strong>.
+      </p>
+      <p>
+        La intención no es “hacerte experto en una semana”, sino darte un mapa para avanzar con criterio:
+        qué estudiar primero, qué practicar, y cómo pensar cuando el código no compila o el algoritmo no sale.
+        Aquí se celebra la humildad intelectual: por más que te esfuerces, siempre habrá algo que no sabes…
+        y esa es una buena noticia, porque siempre hay un siguiente paso.
+      </p>
+      <p>
+        Recurso general para empezar: <a href="https://en.cppreference.com/" target="_blank" rel="noopener noreferrer">cppreference</a>
+        (para C y C++).
+      </p>
     </section>
 
-    <section id="proyecto">
-      <h2>¿Qué incluye esta página?</h2>
-      <p>Incluye estructura semántica, títulos, párrafos, enlaces e imágenes.</p>
+    <section id="fundamentos">
+      <h2>Fundamentos de algoritmia</h2>
+      <p>
+        Un algoritmo es una receta finita y precisa para transformar una entrada en una salida. Su magia no está
+        en escribir muchas líneas, sino en elegir una estrategia que funcione <em>siempre</em> y que sea razonable
+        en tiempo y memoria.
+      </p>
 
-      <h3>Características</h3>
-      <ul>
-        <li>Estructura base HTML correcta</li>
-        <li>Secciones organizadas con títulos</li>
-        <li>Enlaces de navegación</li>
-        <li>Imagen insertada con <code>img</code></li>
-      </ul>
+      <h3>Cómo pensar un problema</h3>
+      <p>
+        Antes de programar: define claramente la entrada, la salida, y los casos extremos. Escribe un ejemplo pequeño
+        a mano. Si no puedes explicarlo con palabras, el compilador tampoco podrá “adivinarlo”.
+      </p>
 
-      <p>Visita GitHub aquí:
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <h3>Pseudocódigo y trazas</h3>
+      <p>
+        El pseudocódigo sirve para enfocarte en la idea, no en la sintaxis. Luego haz una traza: simula el algoritmo
+        paso a paso con un ejemplo. Las trazas son la forma más barata de encontrar errores lógicos.
       </p>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900"
-             alt="Personas trabajando en una laptop"
-             width="600" />
-        <figcaption>Imagen de ejemplo (puedes reemplazarla por otra).</figcaption>
+        <img src="img/placeholder.jpg" alt="Diagrama simple de entrada-proceso-salida para ilustrar un algoritmo" />
+        <figcaption>
+          Entrada → Proceso → Salida: parece obvio, hasta que te saltas un caso límite.
+        </figcaption>
       </figure>
     </section>
 
-    <section id="contacto">
-      <h2>Contacto (opcional)</h2>
-      <p>Si deseas, puedes dejar un formulario sencillo:</p>
+    <section id="c">
+      <h2>C para algoritmia</h2>
+      <p>
+        C es directo, rápido y honesto: si te equivocas, no lo oculta. Es ideal para aprender fundamentos
+        porque te obliga a entender memoria, punteros y cómo se representan los datos.
+      </p>
 
-      <form>
-        <label for="nombre">Nombre:</label><br />
-        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" /><br /><br />
+      <h3>Lo mínimo que debes dominar</h3>
+      <ul>
+        <li><strong>Tipos básicos</strong> y límites: <code>int</code>, <code>long long</code>, <code>char</code>, <code>double</code>.</li>
+        <li><strong>Arreglos</strong> y acceso por índice (cuidado con desbordes).</li>
+        <li><strong>Punteros</strong> como “direcciones”: útiles, pero merecen respeto.</li>
+        <li><strong>Funciones</strong>: separa lógica, mejora pruebas, reduce caos.</li>
+        <li><strong>Entrada/Salida</strong>: <code>scanf/printf</code> o <code>fgets</code> cuando toque texto.</li>
+      </ul>
 
-        <label for="mensaje">Mensaje:</label><br />
-        <input id="mensaje" name="mensaje" type="text" placeholder="Escribe algo" /><br /><br />
+      <h3>Un consejo realista</h3>
+      <p>
+        Si tu programa falla, asume primero que tu comprensión es incompleta (no “que la computadora te odia”).
+        En C, pequeños descuidos (índices, <code>\0</code>, memoria) se vuelven grandes dolores. Eso no es castigo:
+        es una oportunidad para aprender precisión.
+      </p>
 
-        <button type="submit">Enviar</button>
-      </form>
+      <p>
+        Recursos: <a href="https://devdocs.io/c/" target="_blank" rel="noopener noreferrer">Referencia rápida de C</a> y
+        <a href="https://en.cppreference.com/w/c" target="_blank" rel="noopener noreferrer">cppreference (C)</a>.
+      </p>
+    </section>
+
+    <section id="cpp">
+      <h2>C++ para algoritmia</h2>
+      <p>
+        C++ puede ser “mucho”, pero para algoritmia suele ser una ventaja: la biblioteca estándar (STL) te permite
+        concentrarte en ideas (estructuras y algoritmos) sin reescribir herramientas comunes.
+      </p>
+
+      <h3>La parte de C++ que más rinde al inicio</h3>
+      <ul>
+        <li><strong>Entrada/Salida</strong>: <code>cin/cout</code> (y aprender a acelerarlos si lo necesitas).</li>
+        <li><strong>Contenedores</strong>: <code>vector</code>, <code>deque</code>, <code>stack</code>, <code>queue</code>, <code>map</code>, <code>unordered_map</code>, <code>set</code>.</li>
+        <li><strong>Algoritmos</strong>: <code>sort</code>, <code>lower_bound</code>, <code>upper_bound</code>, <code>min_element</code>, <code>max_element</code>.</li>
+        <li><strong>Iteradores</strong>: no son “misticismo”, son una forma consistente de recorrer.</li>
+      </ul>
+
+      <h3>Humildad útil</h3>
+      <p>
+        No necesitas aprender “todo C++” para resolver problemas. Aprende lo que te ayuda a escribir soluciones claras
+        y correctas. Lo demás llegará cuando haga falta.
+      </p>
+
+      <p>
+        Recursos: <a href="https://en.cppreference.com/w/cpp" target="_blank" rel="noopener noreferrer">cppreference (C++)</a> y
+        <a href="https://cplusplus.com/" target="_blank" rel="noopener noreferrer">cplusplus.com</a>.
+      </p>
+    </section>
+
+    <section id="estructuras">
+      <h2>Estructuras de datos</h2>
+      <p>
+        Una estructura de datos es una decisión: cómo guardas información para operar sobre ella con eficiencia.
+        La misma lógica puede volverse lenta o elegante dependiendo de esta elección.
+      </p>
+
+      <h3>Imprescindibles</h3>
+      <ul>
+        <li><strong>Arreglos y vectores</strong>: acceso rápido por índice, tamaño fijo (C) o dinámico (C++).</li>
+        <li><strong>Listas enlazadas</strong>: inserciones fáciles, acceso secuencial (ojo: no son “más rápidas” por defecto).</li>
+        <li><strong>Pilas y colas</strong>: modelan procesos: LIFO y FIFO.</li>
+        <li><strong>Hash tables</strong>: búsquedas rápidas en promedio, con cuidado de colisiones.</li>
+        <li><strong>Árboles</strong>: jerarquía, orden, y búsquedas eficientes (BST, heaps, etc.).</li>
+        <li><strong>Grafos</strong>: redes de relaciones; base de muchos problemas reales.</li>
+      </ul>
+
+      <figure>
+        <img src="img/placeholder.jpg" alt="Esquema sencillo comparando arreglo, lista enlazada y árbol" />
+        <figcaption>
+          No hay estructura “mejor”: hay estructura adecuada para la operación que necesitas.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="clasicos">
+      <h2>Algoritmos clásicos (búsqueda, ordenamiento, recursión)</h2>
+      <p>
+        Los clásicos se repiten porque funcionan: no por tradición, sino por utilidad. Dominarlos te da un lenguaje
+        mental para construir soluciones más complejas.
+      </p>
+
+      <h3>Búsqueda</h3>
+      <p>
+        La búsqueda lineal recorre todo: simple y segura. La búsqueda binaria reduce el espacio a la mitad cada paso,
+        pero exige una condición: datos ordenados (o una propiedad monotónica).
+      </p>
+
+      <h3>Ordenamiento</h3>
+      <p>
+        Aprende al menos: selección/inserción (por intuición), merge sort (divide y vencerás) y quicksort (promedio muy rápido).
+        En la práctica, usa la librería estándar cuando puedas y entiende <em>por qué</em> funciona.
+      </p>
+
+      <h3>Recursión</h3>
+      <p>
+        Recursión es resolver un problema usando una versión más pequeña del mismo. Lo vital es:
+        <strong>caso base</strong> (para detenerte) y <strong>progreso</strong> (para acercarte al caso base).
+        Si falta uno, tu programa se va al infinito… y no por terco, sino por lógico.
+      </p>
+
+      <p>
+        Recursos: <a href="https://cp-algorithms.com/" target="_blank" rel="noopener noreferrer">cp-algorithms</a> y
+        <a href="https://www.geeksforgeeks.org/" target="_blank" rel="noopener noreferrer">GeeksforGeeks</a>.
+      </p>
+    </section>
+
+    <section id="complejidad">
+      <h2>Complejidad (Big-O) explicada de forma sencilla</h2>
+      <p>
+        Big-O describe cómo crece el costo de tu algoritmo cuando crece el tamaño de la entrada <em>n</em>. No se trata
+        de adivinar “segundos exactos”, sino de comparar escalas: ¿se vuelve imposible cuando n aumenta?
+      </p>
+
+      <h3>Intuiciones rápidas</h3>
+      <ul>
+        <li><strong>O(1)</strong>: costo constante (ej. acceder a un índice).</li>
+        <li><strong>O(log n)</strong>: crece lento (ej. búsqueda binaria).</li>
+        <li><strong>O(n)</strong>: recorre todo (ej. suma de un arreglo).</li>
+        <li><strong>O(n log n)</strong>: típico de ordenamientos eficientes.</li>
+        <li><strong>O(n²)</strong>: doble ciclo; funciona en pequeño, sufre en grande.</li>
+      </ul>
+
+      <p>
+        Una regla práctica: si estás anidando ciclos sin pensar, detente. Tal vez está bien… o tal vez estás pagando
+        un precio que no notarás hasta que sea tarde. Aprender a estimar Big-O es aprender a prever.
+      </p>
+
+      <figure>
+        <img src="img/placeholder.jpg" alt="Gráfica conceptual de crecimiento: O(1), O(log n), O(n), O(n log n), O(n^2)" />
+        <figcaption>
+          La diferencia entre “funciona” y “funciona en producción” suele ser una curva de crecimiento.
+        </figcaption>
+      </figure>
+
+      <p>
+        Recurso: <a href="https://www.bigocheatsheet.com/" target="_blank" rel="noopener noreferrer">Big-O Cheat Sheet</a>.
+      </p>
+    </section>
+
+    <section id="retos">
+      <h2>Ejercicios y retos</h2>
+      <p>
+        La algoritmia se aprende haciendo. No necesitas 200 problemas al mes; necesitas práctica constante,
+        revisión de errores y volver a intentarlo con menos orgullo y más método.
+      </p>
+
+      <h3>Ruta sugerida (sin obsesionarte)</h3>
+      <ol>
+        <li>Implementa búsquedas y ordenamientos en C (para entender el “motor”).</li>
+        <li>Pasa a C++ usando STL: resuelve lo mismo con <code>vector</code> y <code>sort</code> y compara claridad.</li>
+        <li>Aprende estructuras: pila/cola → hash → árbol → grafo (en ese orden suele doler menos).</li>
+        <li>Haz problemas de recursión y luego DP (programación dinámica) cuando la recursión se vuelva lenta.</li>
+      </ol>
+
+      <h3>Retos concretos</h3>
+      <ul>
+        <li>
+          <strong>Entrada y salida:</strong> lee una lista de números, imprime el mínimo, máximo y promedio.
+        </li>
+        <li>
+          <strong>Ordenamiento:</strong> ordena por valor absoluto, y si empatan, por valor real.
+        </li>
+        <li>
+          <strong>Recursión:</strong> genera todas las subsecuencias de una cadena (cuida duplicados).
+        </li>
+        <li>
+          <strong>Estructuras:</strong> implementa una pila con arreglo (C) y otra con <code>vector</code> (C++).
+        </li>
+        <li>
+          <strong>Grafos:</strong> BFS para distancias mínimas en un grid con obstáculos.
+        </li>
+      </ul>
+
+      <p>
+        Plataformas para practicar: <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer">LeetCode</a>,
+        <a href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">Codeforces</a>,
+        <a href="https://www.beecrowd.com.br/" target="_blank" rel="noopener noreferrer">beecrowd</a>.
+      </p>
+
     </section>
   </main>
 
-  <footer>
-    <hr />
-    <p>© 2026 - Proyecto Final HTML</p>
-  </footer>
+ <figure>
+  <img
+    src="img/guts_end.png"
+    alt="Guts fullthrought"
+    width="320"
+  />
+  <figcaption>
+    Cuando te frustres: no es señal de incapacidad, es señal de frontera. La frontera es donde se aprende.
+    Y sí: siempre habrá algo que no sabes. La meta no es “saberlo todo”, sino saber avanzar.
+  </figcaption>
+</figure>
+
+
 </body>
 </html>
