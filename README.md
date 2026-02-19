@@ -30,10 +30,11 @@ https://chmood110.github.io/primera_pag_web_DE_F_clase/
 
 ## Estructura del sitio
 
-- `index.html` — Inicio y fundamentos (pseudocódigo, Big-O, ruta recomendada)
-- `historia.html` — Guía completa con sidebar (C, C++, estructuras, clásicos, Big-O, fuentes)
-- `contacto.html` — Ejercicios y formulario (demostrativo)
+- index.html (Inicio): página de entrada y orientación. Presenta el propósito del sitio y los fundamentos (pseudocódigo, Big-O y ruta recomendada) para que el usuario sepa por dónde empezar.
 
+- historia.html (Guía): concentra el contenido extenso y estructurado. Incluye C, C++, estructuras de datos, algoritmos clásicos, Big-O y fuentes, con sidebar para navegar rápido entre secciones.
+
+- contacto.html (Ejercicios): sección práctica e interactiva. Reúne ejercicios progresivos con pistas y un formulario demostrativo con validación, útil para retroalimentación y buenas prácticas web.
 ---
 
 ## Tecnologías
