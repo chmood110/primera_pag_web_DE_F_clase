@@ -1,32 +1,45 @@
-# Algoritmia aplicada a C y C++ | Guía minimalista
+# Algoritmia sin estrés — Guía de algoritmia en C y C++ (HTML/CSS/JS local)
 
-Este repositorio contiene una página web hecha únicamente con HTML (sin CSS ni JavaScript), lista para publicarse en GitHub Pages.
+Sitio web estático orientado a estudio, con estética tipo documentación y enfoque “bajo estrés”. Incluye fundamentos, guía completa (C/C++/estructuras/algoritmos) y ejercicios progresivos con pistas y validación de formulario. **Sin frameworks** y sin dependencias externas.
 
-Sitio publicado (GitHub Pages):  
+**Demo (GitHub Pages):**  
 https://chmood110.github.io/primera_pag_web_DE_F_clase/
 
-El objetivo es ofrecer una guía clara y accesible para personas que quieren aprender o reforzar algoritmia, C y C++ sin sentirse abrumadas. El enfoque es realista: aprender implica hacer preguntas, equivocarse, corregir y volver a intentar. Eso no es un defecto; es el proceso.
+---
+
+## Características
+
+- **Contenido académico y progresivo**
+  - Fundamentos de algoritmia + checklist de resolución de problemas
+  - Guía completa: C, C++, estructuras de datos, algoritmos clásicos y Big-O
+  - Ejercicios por niveles (básico, intermedio, avanzado) con pistas
+
+- **UI/UX tipo documentación**
+  - Header fijo y navegación clara
+  - Sidebar con índice (en la guía) y resaltado de sección activa
+  - Componentes reutilizables: tarjetas, callouts, tablas, badges Big-O, bloques de código
+
+- **Interactividad (JS vanilla)**
+  - Tema **claro/oscuro** con persistencia (`localStorage`)
+  - Barra de **progreso de lectura**
+  - Botón **volver arriba**
+  - Pistas desplegables en ejercicios
+  - Formulario demostrativo con validación accesible + toast
 
 ---
 
-## Qué encontrarás en la página
+## Estructura del sitio
 
-La web está organizada en secciones con navegación interna para facilitar el acceso por tema:
-
-- Sobre la página  
-- Fundamentos de algoritmia  
-- C para algoritmia  
-- C++ para algoritmia  
-- Estructuras de datos  
-- Algoritmos clásicos (búsqueda, ordenamiento, recursión)  
-- Complejidad (Big-O) explicada de forma sencilla  
-- Ejercicios y retos  
-
-También incluye imágenes locales dentro de la carpeta `img/`.
+- `index.html` — Inicio y fundamentos (pseudocódigo, Big-O, ruta recomendada)
+- `historia.html` — Guía completa con sidebar (C, C++, estructuras, clásicos, Big-O, fuentes)
+- `contacto.html` — Ejercicios y formulario (demostrativo)
 
 ---
 
-## Estructura del proyecto
+## Tecnologías
 
-Mantén esta estructura para evitar errores de rutas:
+- **HTML5 semántico** (`header`, `nav`, `main`, `section`, `footer`)
+- **CSS3 local** con variables, diseño responsive y modo oscuro
+- **JavaScript vanilla local** (`app.js`) para funcionalidades de UX
+- Recursos locales en `assets/` (imágenes/SVG)
 
