@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía completa de algoritmia: C, C++, estructuras de datos, algoritmos clásicos y complejidad Big-O con ejemplos en código.">
+  <meta name="author" content="Algoritmia — Proyecto académico">
+  <title>Guía de Algoritmia — C, C++, Estructuras y Algoritmos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="progress-bar" role="progressbar" aria-label="Progreso de lectura" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header>
+    <button id="sidebar-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="sidebar">☰</button>
+    <a href="index.html" class="header-logo">Algo<span>ritmi</span>a</a>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="historia.html" class="active">Guía</a>
+      <a href="contacto.html">Ejercicios</a>
+    </nav>
+    <div class="header-actions">
+      <button id="theme-toggle" aria-label="Cambiar tema">◑ Oscuro</button>
+    </div>
+  </header>
+
+  <!-- ── Layout ─────────────────────────────────────────────── -->
+  <div class="layout">
+
+    <!-- Overlay para móvil -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar" aria-label="Índice de contenido">
+      <p class="sidebar-title">En esta página</p>
+      <nav aria-label="Secciones de la guía">
+        <a href="#c"><span class="dot"></span>C para algoritmia</a>
+        <a href="#cpp"><span class="dot"></span>C++ para algoritmia</a>
+        <a href="#estructuras"><span class="dot"></span>Estructuras de datos</a>
+        <a href="#clasicos"><span class="dot"></span>Algoritmos clásicos</a>
+        <a href="#big-o"><span class="dot"></span>Complejidad Big-O</a>
+        <a href="#fuentes"><span class="dot"></span>Fuentes recomendadas</a>
+      </nav>
+      <p class="sidebar-title" style="margin-top:var(--sp-5);">Otras páginas</p>
+      <nav aria-label="Navegación del sitio">
+        <a href="index.html"><span class="dot"></span>Inicio y fundamentos</a>
+        <a href="contacto.html"><span class="dot"></span>Ejercicios y contacto</a>
+      </nav>
+    </aside>
+
+    <!-- ── Main ────────────────────────────────────────────── -->
+    <main id="main-content">
+      <div class="content-wrapper">
+
+        <p class="section-label">Guía completa</p>
+        <h1>Manual de algoritmia en C y C++</h1>
+        <p class="lead">
+          Esta guía cubre los conceptos esenciales que necesitas para programar algoritmos eficientemente:
+          desde la sintaxis de C hasta el STL de C++, pasando por las estructuras de datos más utilizadas
+          y los algoritmos clásicos que debes conocer.
+        </p>
+
+        <hr class="divider">
+
+        <!-- ════════════════════════════════════════════════════
+             SECCIÓN C
+        ════════════════════════════════════════════════════ -->
+        <section id="c" aria-labelledby="c-title">
+          <p class="section-label">Lenguaje base</p>
+          <h2 id="c-title">C para algoritmia</h2>
+          <p>
+            C es el lenguaje de referencia para estudiar algoritmia por su cercanía con el hardware y su
+            control explícito de memoria. Entender C profundamente te ayuda a comprender qué pasa "debajo"
+            cuando usas lenguajes de más alto nivel.
+          </p>
+
+          <h3>Variables y tipos de datos esenciales</h3>
+          <p>
+            Los tipos más usados en problemas de algoritmia son <code>int</code> (enteros),
+            <code>long long</code> (enteros grandes, hasta ~9.2×10¹⁸), <code>double</code> (decimales)
+            y <code>char</code> (caracteres). Declara las variables lo más cerca posible de donde las usas.
+          </p>
+
+          <h3>Condicionales y ciclos</h3>
+          <p>
+            El <code>if/else</code> y el operador ternario <code>?:</code> controlan el flujo. Para
+            iteraciones usa <code>for</code> cuando conoces el número de repeticiones y <code>while</code>
+            cuando dependes de una condición. El ciclo <code>do-while</code> garantiza al menos una ejecución.
+          </p>
+
+          <h3>Funciones y arreglos</h3>
+          <p>
+            Divide tu solución en funciones pequeñas y bien nombradas. Los arreglos en C son contiguos en
+            memoria: <code>int arr[100]</code> reserva 100 enteros. Pasa arreglos a funciones con un puntero
+            y el tamaño por separado, ya que C no guarda la longitud automáticamente.
+          </p>
+
+          <h3>Ejemplo 1: suma de un arreglo</h3>
+          <pre><code><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="cm">/* Retorna la suma de los primeros n elementos de arr */</span>
+<span class="ty">int</span> <span class="fn">sumaArreglo</span>(<span class="ty">int</span> arr[], <span class="ty">int</span> n) {
+    <span class="ty">int</span> total = <span class="nm">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="nm">0</span>; i &lt; n; i++) {
+        total += arr[i];
+    }
+    <span class="kw">return</span> total;
+}
+
+<span class="ty">int</span> <span class="fn">main</span>(<span class="ty">void</span>) {
+    <span class="ty">int</span> datos[] = {<span class="nm">3</span>, <span class="nm">7</span>, <span class="nm">2</span>, <span class="nm">9</span>, <span class="nm">4</span>};
+    <span class="ty">int</span> n = <span class="kw">sizeof</span>(datos) / <span class="kw">sizeof</span>(datos[<span class="nm">0</span>]);
+    <span class="fn">printf</span>(<span class="st">"Suma: %d\n"</span>, <span class="fn">sumaArreglo</span>(datos, n));
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+          <p class="code-caption">Suma de arreglo en C. El truco de <code>sizeof(arr)/sizeof(arr[0])</code> calcula la cantidad de elementos solo dentro del ámbito donde el arreglo fue declarado.</p>
+
+          <h3>Ejemplo 2: búsqueda lineal con función</h3>
+          <pre><code><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="cm">/* Retorna el índice de 'objetivo' en arr, o -1 si no existe */</span>
+<span class="ty">int</span> <span class="fn">busquedaLineal</span>(<span class="ty">int</span> arr[], <span class="ty">int</span> n, <span class="ty">int</span> objetivo) {
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="nm">0</span>; i &lt; n; i++) {
+        <span class="kw">if</span> (arr[i] == objetivo)
+            <span class="kw">return</span> i;
+    }
+    <span class="kw">return</span> -<span class="nm">1</span>;
+}
+
+<span class="ty">int</span> <span class="fn">main</span>(<span class="ty">void</span>) {
+    <span class="ty">int</span> datos[] = {<span class="nm">10</span>, <span class="nm">25</span>, <span class="nm">8</span>, <span class="nm">42</span>, <span class="nm">3</span>};
+    <span class="ty">int</span> n = <span class="kw">sizeof</span>(datos) / <span class="kw">sizeof</span>(datos[<span class="nm">0</span>]);
+    <span class="ty">int</span> pos = <span class="fn">busquedaLineal</span>(datos, n, <span class="nm">42</span>);
+    <span class="kw">if</span> (pos != -<span class="nm">1</span>)
+        <span class="fn">printf</span>(<span class="st">"Encontrado en índice %d\n"</span>, pos);
+    <span class="kw">else</span>
+        <span class="fn">printf</span>(<span class="st">"No encontrado\n"</span>);
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+          <p class="code-caption">Búsqueda lineal: O(n) en el peor caso. Funciona en arreglos desordenados.</p>
+
+          <div class="callout callout-nota">
+            <p class="callout-label">📝 Nota</p>
+            <p>Cuando uses memoria dinámica (<code>malloc</code>/<code>calloc</code>), siempre libérala con
+            <code>free()</code>. Los fugas de memoria no causan errores inmediatos, pero degradan el rendimiento
+            en programas largos y pueden ser difíciles de depurar.</p>
+          </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             SECCIÓN C++
+        ════════════════════════════════════════════════════ -->
+        <section id="cpp" aria-labelledby="cpp-title">
+          <p class="section-label">El siguiente paso</p>
+          <h2 id="cpp-title">C++ para algoritmia</h2>
+          <p>
+            C++ extiende C con orientación a objetos, pero para algoritmia lo más valioso es su
+            <strong>Standard Template Library (STL)</strong>: contenedores genéricos, iteradores y algoritmos
+            ya implementados y probados. Usarlos correctamente marca la diferencia en competencias y proyectos.
+          </p>
+
+          <h3>Entrada/salida con iostream</h3>
+          <p>
+            Usa <code>cin</code> y <code>cout</code> en lugar de <code>scanf/printf</code>. Para competencias,
+            agrega <code>ios::sync_with_stdio(false); cin.tie(NULL);</code> al inicio del <code>main</code>
+            para acelerar significativamente la lectura de datos grandes.
+          </p>
+
+          <h3>Vector: el arreglo dinámico de C++</h3>
+          <p>
+            <code>std::vector&lt;int&gt;</code> es un arreglo que crece automáticamente. Ofrece acceso
+            aleatorio en O(1), inserción al final en O(1) amortizado, y la conveniencia de conocer su
+            tamaño con <code>.size()</code>. Es la estructura por defecto cuando no sabes el tamaño exacto
+            de antemano.
+          </p>
+
+          <h3>Ejemplo 1: uso de vector y sort</h3>
+          <pre><code><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">#include</span> &lt;vector&gt;
+<span class="kw">#include</span> &lt;algorithm&gt;
+<span class="kw">using namespace</span> std;
+
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="cm">// Leer n números y almacenarlos en un vector</span>
+    <span class="ty">int</span> n;
+    cin >> n;
+    vector&lt;<span class="ty">int</span>&gt; nums(n);
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="nm">0</span>; i &lt; n; i++) cin >> nums[i];
+
+    <span class="cm">// Ordenar en O(n log n) con std::sort</span>
+    <span class="fn">sort</span>(nums.<span class="fn">begin</span>(), nums.<span class="fn">end</span>());
+
+    cout &lt;&lt; <span class="st">"Ordenados: "</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> x : nums) cout &lt;&lt; x &lt;&lt; <span class="st">" "</span>;
+    cout &lt;&lt; <span class="st">"\n"</span>;
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+          <p class="code-caption"><code>std::sort</code> implementa Introsort (híbrido de quicksort, heapsort y insertion sort) con complejidad garantizada O(n log n).</p>
+
+          <h3>Ejemplo 2: map y set para frecuencias</h3>
+          <pre><code><span class="kw">#include</span> &lt;iostream&gt;
+<span class="kw">#include</span> &lt;map&gt;
+<span class="kw">using namespace</span> std;
+
+<span class="ty">int</span> <span class="fn">main</span>() {
+    <span class="cm">// Contar frecuencia de palabras</span>
+    map&lt;string, <span class="ty">int</span>&gt; freq;
+    string palabra;
+    <span class="kw">while</span> (cin >> palabra) {
+        freq[palabra]++;
+    }
+    <span class="kw">for</span> (<span class="kw">auto</span>&amp; [key, val] : freq) {
+        cout &lt;&lt; key &lt;&lt; <span class="st">": "</span> &lt;&lt; val &lt;&lt; <span class="st">"\n"</span>;
+    }
+    <span class="kw">return</span> <span class="nm">0</span>;
+}
+</code></pre>
+          <p class="code-caption"><code>std::map</code> es un árbol balanceado (BST) con operaciones O(log n). Si solo necesitas búsqueda rápida sin orden, usa <code>unordered_map</code> con O(1) promedio.</p>
+
+          <div class="callout callout-tip">
+            <p class="callout-label">💡 Tip STL esencial</p>
+            <p>Para competencias y proyectos, domina al menos: <code>vector</code>, <code>map</code>,
+            <code>unordered_map</code>, <code>set</code>, <code>queue</code>, <code>stack</code>,
+            <code>priority_queue</code> y los algoritmos <code>sort</code>, <code>binary_search</code>,
+            <code>lower_bound</code> y <code>upper_bound</code>. Con estos ya puedes resolver la mayoría de
+            los problemas de nivel intermedio.</p>
+          </div>
+
+          <h3>Referencias y paso por referencia</h3>
+          <p>
+            A diferencia de C, en C++ puedes pasar por referencia con <code>&amp;</code>. Esto evita copiar
+            estructuras grandes y permite modificar el valor original desde una función. Usa
+            <code>const&amp;</code> cuando no necesitas modificar el parámetro para expresar esa intención
+            explícitamente y permitir al compilador optimizar.
+          </p>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             ESTRUCTURAS DE DATOS
+        ════════════════════════════════════════════════════ -->
+        <section id="estructuras" aria-labelledby="est-title">
+          <p class="section-label">Organizar la información</p>
+          <h2 id="est-title">Estructuras de datos</h2>
+          <p>
+            Una estructura de datos es una forma de organizar información en memoria para que ciertas
+            operaciones —búsqueda, inserción, eliminación— sean eficientes. Elegir la estructura correcta
+            frecuentemente es la mitad de la solución.
+          </p>
+
+          <div style="display:flex; justify-content:center; margin: var(--sp-5) 0;">
+            <img src="assets/stack-queue.jpg"
+                 alt="Diagrama comparativo de Pila (Stack, LIFO) y Cola (Queue, FIFO) mostrando cómo se insertan y extraen elementos"
+                 width="360" height="200">
+          </div>
+
+          <h3>Arreglos (Arrays)</h3>
+          <p>
+            Colección de elementos del mismo tipo almacenados de forma contigua en memoria. Acceso aleatorio
+            en O(1), pero inserción y eliminación en posiciones intermedias requieren O(n) por el desplazamiento
+            de elementos. Úsalos cuando el tamaño es conocido y el acceso por índice es frecuente.
+          </p>
+
+          <h3>Listas enlazadas</h3>
+          <p>
+            Cada nodo contiene el dato y un puntero al siguiente. Inserción y eliminación en O(1) si tienes
+            el puntero al nodo previo, pero el acceso por posición es O(n). En la práctica, <code>std::list</code>
+            de C++ se usa poco porque los vectores suelen ser más eficientes en caché.
+          </p>
+
+          <h3>Pilas (Stack) y Colas (Queue)</h3>
+          <p>
+            La <strong>pila</strong> (LIFO) permite insertar y extraer solo por el tope. Es fundamental para
+            recursión, evaluación de expresiones y DFS iterativo. La <strong>cola</strong> (FIFO) extrae por
+            el frente e inserta por el final; es clave para BFS y simulaciones de procesos.
+          </p>
+
+          <h3>Árboles</h3>
+          <p>
+            Un árbol binario de búsqueda (BST) permite búsqueda, inserción y eliminación en O(log n)
+            <em>si está balanceado</em>. Los árboles AVL y los Red-Black Trees garantizan el balance
+            automáticamente. En C++, <code>std::map</code> y <code>std::set</code> están implementados como
+            árboles Red-Black.
+          </p>
+
+          <h3>Tablas hash (Hash Tables)</h3>
+          <p>
+            Ofrecen búsqueda, inserción y eliminación en O(1) promedio. La eficiencia depende de la función
+            hash y el manejo de colisiones. En C++, <code>unordered_map</code> y <code>unordered_set</code>
+            son las implementaciones estándar.
+          </p>
+
+          <h4>¿Cuándo usar cada estructura?</h4>
+          <div class="table-wrap">
+            <table aria-label="Comparativa de estructuras de datos: cuándo usar cada una">
+              <thead>
+                <tr>
+                  <th>Estructura</th>
+                  <th>Acceso</th>
+                  <th>Inserción</th>
+                  <th>Búsqueda</th>
+                  <th>Úsala cuando…</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Arreglo / Vector</td>
+                  <td><span class="badge-o">O(1)</span></td>
+                  <td><span class="badge-o medium">O(n)*</span></td>
+                  <td><span class="badge-o medium">O(n)</span></td>
+                  <td>Acceso por índice frecuente, tamaño relativamente fijo.</td>
+                </tr>
+                <tr>
+                  <td>Lista enlazada</td>
+                  <td><span class="badge-o medium">O(n)</span></td>
+                  <td><span class="badge-o">O(1)</span></td>
+                  <td><span class="badge-o medium">O(n)</span></td>
+                  <td>Muchas inserciones/eliminaciones en posiciones arbitrarias.</td>
+                </tr>
+                <tr>
+                  <td>Stack / Queue</td>
+                  <td>Solo tope/frente</td>
+                  <td><span class="badge-o">O(1)</span></td>
+                  <td>—</td>
+                  <td>DFS (stack), BFS (queue), historial de acciones.</td>
+                </tr>
+                <tr>
+                  <td>BST / Map / Set</td>
+                  <td><span class="badge-o">O(log n)</span></td>
+                  <td><span class="badge-o">O(log n)</span></td>
+                  <td><span class="badge-o">O(log n)</span></td>
+                  <td>Datos ordenados, rangos, mínimo/máximo dinámico.</td>
+                </tr>
+                <tr>
+                  <td>Hash / Unordered</td>
+                  <td><span class="badge-o">O(1) prom.</span></td>
+                  <td><span class="badge-o">O(1) prom.</span></td>
+                  <td><span class="badge-o">O(1) prom.</span></td>
+                  <td>Frecuencias, lookups rápidos sin necesitar orden.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="code-caption">*Inserción al final de vector es O(1) amortizado. Al inicio o en posición arbitraria es O(n).</p>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             ALGORITMOS CLÁSICOS
+        ════════════════════════════════════════════════════ -->
+        <section id="clasicos" aria-labelledby="clas-title">
+          <p class="section-label">Herramientas fundamentales</p>
+          <h2 id="clas-title">Algoritmos clásicos</h2>
+          <p>
+            Hay un conjunto de algoritmos que todo programador debe conocer porque aparecen una y otra vez
+            en problemas reales. No hace falta memorizarlos: el objetivo es entender <em>cuándo</em> aplica
+            cada uno y ser capaz de implementarlo sin referencia.
+          </p>
+
+          <h3>Búsqueda lineal y búsqueda binaria</h3>
+          <p>
+            La <strong>búsqueda lineal</strong> recorre todos los elementos hasta encontrar el objetivo: O(n),
+            funciona en arreglos no ordenados. La <strong>búsqueda binaria</strong> aprovecha el orden para
+            dividir el espacio de búsqueda a la mitad en cada paso: O(log n). Para n=1,000,000, la búsqueda
+            binaria necesita solo ~20 comparaciones.
+          </p>
+          <pre><code><span class="cm">// Búsqueda binaria iterativa en C++ (arreglo ordenado)</span>
+<span class="ty">int</span> <span class="fn">binaria</span>(vector&lt;<span class="ty">int</span>&gt;&amp; arr, <span class="ty">int</span> objetivo) {
+    <span class="ty">int</span> izq = <span class="nm">0</span>, der = arr.<span class="fn">size</span>() - <span class="nm">1</span>;
+    <span class="kw">while</span> (izq &lt;= der) {
+        <span class="ty">int</span> mid = izq + (der - izq) / <span class="nm">2</span>; <span class="cm">// evita overflow</span>
+        <span class="kw">if</span> (arr[mid] == objetivo) <span class="kw">return</span> mid;
+        <span class="kw">if</span> (arr[mid] &lt; objetivo)  izq = mid + <span class="nm">1</span>;
+        <span class="kw">else</span>                       der = mid - <span class="nm">1</span>;
+    }
+    <span class="kw">return</span> -<span class="nm">1</span>; <span class="cm">// no encontrado</span>
+}
+</code></pre>
+          <p class="code-caption">Usar <code>mid = izq + (der-izq)/2</code> en lugar de <code>(izq+der)/2</code> previene desbordamiento entero cuando los índices son grandes.</p>
+
+          <h3>Algoritmos de ordenamiento</h3>
+          <p>
+            Los algoritmos simples como <strong>Bubble Sort</strong> y <strong>Selection Sort</strong> tienen
+            O(n²) y sirven solo para conjuntos pequeños o para aprender el concepto. En la práctica, usa
+            siempre <code>std::sort</code> de C++ que implementa Introsort con O(n log n) garantizado.
+          </p>
+          <p>
+            <strong>Merge Sort</strong> divide el arreglo en dos mitades, ordena cada mitad recursivamente y
+            las fusiona en O(n log n). Es estable (mantiene el orden relativo de elementos iguales) y predecible.
+            <strong>Quick Sort</strong> elige un pivote, particiona alrededor de él y ordena las particiones
+            recursivamente: O(n log n) promedio, O(n²) en el peor caso (que se evita con pivote aleatorio).
+          </p>
+
+          <div class="callout callout-tip">
+            <p class="callout-label">💡 Regla práctica de ordenamiento</p>
+            <p>Usa <code>std::sort</code> siempre que puedas. Solo implementa tu propio algoritmo de
+            ordenamiento en competencias que lo pidan explícitamente, para aprender, o cuando necesites
+            una variante específica como conteo de inversiones con Merge Sort.</p>
+          </div>
+
+          <h3>BFS — Búsqueda en Anchura</h3>
+          <p>
+            BFS (Breadth-First Search) explora un grafo nivel por nivel usando una <strong>cola</strong>.
+            Visita primero todos los vecinos del nodo inicial, luego los vecinos de esos vecinos, y así
+            sucesivamente. Es ideal para encontrar el <em>camino más corto</em> en grafos no ponderados
+            (donde todas las aristas tienen el mismo peso).
+          </p>
+          <p>
+            Casos de uso típicos: distancia mínima en laberintos, número mínimo de pasos, componentes
+            conectados, y verificar si un grafo es bipartito.
+          </p>
+
+          <h3>DFS — Búsqueda en Profundidad</h3>
+          <p>
+            DFS (Depth-First Search) explora tan lejos como sea posible por cada rama antes de retroceder.
+            Se implementa con recursión (usando la pila de llamadas) o con una <strong>pila</strong> explícita.
+            Es fundamental para detección de ciclos, ordenamiento topológico, componentes fuertemente
+            conectados y la mayoría de los algoritmos de árboles.
+          </p>
+
+          <div class="callout callout-nota">
+            <p class="callout-label">📝 BFS vs DFS</p>
+            <p><strong>BFS</strong>: distancia mínima, nivel por nivel. Usa más memoria (guarda todos los nodos del nivel actual).<br>
+            <strong>DFS</strong>: exploración profunda, ciclos, topología. Usa menos memoria en grafos anchos pero puede apilar mucho en grafos profundos.</p>
+          </div>
+
+          <div class="callout callout-warn">
+            <p class="callout-label">⚠ Advertencia</p>
+            <p>En DFS recursivo, si el grafo tiene miles de nodos encadenados (como una lista enlazada grande),
+            puedes agotar la pila de llamadas del sistema y causar un <em>stack overflow</em>. En ese caso,
+            implementa DFS iterativo con una pila explícita (<code>std::stack</code>).</p>
+          </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             BIG-O PROFUNDO
+        ════════════════════════════════════════════════════ -->
+        <section id="big-o" aria-labelledby="bigo-title">
+          <p class="section-label">Análisis de eficiencia</p>
+          <h2 id="bigo-title">Complejidad Big-O: guía práctica</h2>
+          <p>
+            La notación Big-O describe el peor caso de crecimiento de un algoritmo. Al analizar código, busca
+            los bucles: un <code>for</code> simple sobre n elementos contribuye O(n). Dos <code>for</code>
+            anidados sobre los mismos n elementos dan O(n²). Una función recursiva que divide el problema a
+            la mitad en cada llamada suele ser O(log n) o O(n log n).
+          </p>
+          <p>
+            Las constantes se ignoran en Big-O: O(3n) = O(n). Los términos de menor orden también se eliminan:
+            O(n² + n) = O(n²). Esto refleja que para entradas muy grandes, el término dominante determina el
+            comportamiento.
+          </p>
+
+          <h3>Cómo calcular complejidad en la práctica</h3>
+          <ul>
+            <li>Identifica el tamaño de la entrada: suele ser <em>n</em>, pero puede ser la longitud de una cadena, el número de vértices de un grafo, etc.</li>
+            <li>Cuenta las operaciones dominantes: comparaciones, accesos a arreglo, llamadas a función.</li>
+            <li>Si hay un <code>for</code> de 1 a n que dentro llama a <code>sort</code>, la complejidad total es O(n · n log n) = O(n² log n).</li>
+            <li>La recursión tiene un árbol de llamadas: el número de hojas y la profundidad determinan la complejidad.</li>
+          </ul>
+
+          <h3>Límites prácticos por tiempo de ejecución</h3>
+          <div class="table-wrap">
+            <table aria-label="Límites de operaciones según complejidad y tiempo permitido">
+              <thead>
+                <tr>
+                  <th>Complejidad</th>
+                  <th>n máximo aprox. en 1 segundo</th>
+                  <th>Contexto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge-o">O(1) — O(log n)</span></td>
+                  <td>Cualquier n razonable</td>
+                  <td>Búsqueda binaria, hash lookup</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-o">O(n)</span></td>
+                  <td>~10⁸</td>
+                  <td>Recorrido de arreglo, suma</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-o">O(n log n)</span></td>
+                  <td>~10⁷</td>
+                  <td>Ordenamiento, Merge Sort</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-o medium">O(n²)</span></td>
+                  <td>~10⁴ — 10⁵</td>
+                  <td>Dos bucles anidados</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-o bad">O(2ⁿ)</span></td>
+                  <td>~20 — 25</td>
+                  <td>Subconjuntos, fuerza bruta exponencial</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout-tip">
+            <p class="callout-label">💡 Consejo final</p>
+            <p>Antes de optimizar prematuramente, comprueba que tu solución es correcta. Una solución O(n²)
+            correcta es mejor que una O(n log n) con bugs. Optimiza solo cuando el análisis de complejidad
+            indique que superarás el límite de tiempo.</p>
+          </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             FUENTES
+        ════════════════════════════════════════════════════ -->
+        <section id="fuentes" aria-labelledby="fuentes-title">
+          <p class="section-label">Para ir más lejos</p>
+          <h2 id="fuentes-title">Fuentes y lecturas recomendadas</h2>
+          <p>
+            Las siguientes son fuentes de primera línea, ampliamente reconocidas en la comunidad académica y
+            profesional. No inventamos ni fabricamos referencias.
+          </p>
+          <ul>
+            <li>
+              <strong>Cormen, Leiserson, Rivest & Stein — Introduction to Algorithms (CLRS), 4ª ed.</strong><br>
+              El libro de referencia por excelencia. Cubre prácticamente todos los algoritmos clásicos con
+              demostraciones formales y análisis de complejidad riguroso.
+            </li>
+            <li>
+              <strong>Knuth — The Art of Computer Programming (Vols. 1–4A)</strong><br>
+              La obra más exhaustiva sobre el tema. Matemáticamente profunda. Recomendada para quienes buscan
+              el fundamento teórico completo.
+            </li>
+            <li>
+              <strong>Sedgewick & Wayne — Algorithms, 4ª ed.</strong><br>
+              Excelente equilibrio entre teoría y práctica. Incluye visualizaciones y está escrito de forma
+              más accesible que CLRS.
+            </li>
+            <li>
+              <strong>MIT OpenCourseWare — 6.006 Introduction to Algorithms y 6.046 Design and Analysis of Algorithms</strong><br>
+              Cursos completos, con notas, videos y tareas disponibles gratuitamente en ocw.mit.edu.
+            </li>
+            <li>
+              <strong>Stanford University — CS161 (Algorithms) y materiales del Algorithms Specialization en Coursera</strong><br>
+              Tim Roughgarden ofrece explicaciones muy claras sobre divide y vencerás, grafos y programación dinámica.
+            </li>
+            <li>
+              <strong>cp-algorithms.com</strong><br>
+              Referencia práctica orientada a programación competitiva. Cubre implementaciones detalladas
+              de algoritmos avanzados con pseudocódigo y código C++.
+            </li>
+          </ul>
+
+          <div class="callout callout-nota">
+            <p class="callout-label">📝 Cómo usar estas fuentes</p>
+            <p>No necesitas leer CLRS de principio a fin desde el primer día. Úsalo como diccionario: cuando
+            encuentres un algoritmo nuevo, búscalo ahí para ver su demostración formal. Los cursos de MIT y
+            Stanford son ideales para aprender en secuencia y ver los conceptos en movimiento.</p>
+          </div>
+        </section>
+
+      </div><!-- /.content-wrapper -->
+    </main>
+  </div><!-- /.layout -->
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="historia.html">Guía completa</a></li>
+          <li><a href="contacto.html">Ejercicios y contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Secciones de esta guía</h4>
+        <ul>
+          <li><a href="#c">C para algoritmia</a></li>
+          <li><a href="#cpp">C++ para algoritmia</a></li>
+          <li><a href="#estructuras">Estructuras de datos</a></li>
+          <li><a href="#clasicos">Algoritmos clásicos</a></li>
+          <li><a href="#big-o">Complejidad Big-O</a></li>
+          <li><a href="#fuentes">Fuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fuentes de referencia</h4>
+        <ul>
+          <li>Cormen et al. — Introduction to Algorithms (CLRS)</li>
+          <li>Knuth — The Art of Computer Programming</li>
+          <li>Sedgewick & Wayne — Algorithms</li>
+          <li>MIT OpenCourseWare · Stanford CS</li>
+          <li>cp-algorithms.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>Proyecto académico de algoritmia — HTML/CSS/JS puro</span>
+      <span>Derechos Reservados</span>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Volver al inicio">↑</button>
+  <script src="app.js"></script>
+</body>
+</html>

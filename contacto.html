@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ejercicios progresivos de algoritmia en C y C++, desde nivel básico hasta retos avanzados. Incluye formulario de contacto.">
+  <meta name="author" content="Algoritmia — Proyecto académico">
+  <title>Ejercicios y Contacto — Algoritmia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="no-sidebar">
+
+  <div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header>
+    <a href="index.html" class="header-logo">Algo<span>ritmi</span>a</a>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="historia.html">Guía</a>
+      <a href="contacto.html" class="active">Ejercicios</a>
+    </nav>
+    <div class="header-actions">
+      <button id="theme-toggle" aria-label="Cambiar tema">◑ Oscuro</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main id="main-content">
+      <div class="content-wrapper">
+
+        <p class="section-label">Practica y consolida</p>
+        <h1>Ejercicios y retos de algoritmia</h1>
+        <p class="lead">
+          La mejor forma de aprender algoritmia es resolviéndola. Esta sección ofrece ejercicios progresivos:
+          empieza por los básicos aunque te parezcan sencillos; la claridad conceptual que obtendrás es
+          el fundamento para resolver los más difíciles.
+        </p>
+
+        <!-- Imagen de ruta -->
+        <div style="display:flex; justify-content:center; margin: var(--sp-5) 0;">
+          <img src="assets/ejercicios-ruta.svg"
+               alt="Diagrama de la ruta de práctica: desde ejercicios fáciles, pasando por nivel básico e intermedio, hasta los retos avanzados"
+               width="320" height="180">
+        </div>
+
+        <hr class="divider">
+
+        <!-- ════════════════════════════════════════════════════
+             EJERCICIOS BÁSICOS (1-5)
+        ════════════════════════════════════════════════════ -->
+        <section id="ejercicios" aria-labelledby="ej-title">
+          <p class="section-label">Nivel fácil</p>
+          <h2 id="ej-title">Ejercicios básicos (1 – 5)</h2>
+          <p>
+            Estos ejercicios caben en menos de 20 líneas de código. Su objetivo no es ser difíciles, sino
+            construir el hábito de pensar antes de programar y verificar los casos borde.
+          </p>
+
+          <!-- Ejercicio 1 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 01</p>
+            <div><span class="tag tag-green">Arrays</span><span class="tag tag-green">Bucles</span></div>
+            <h3>Suma y promedio de un arreglo</h3>
+            <p><strong>Objetivo:</strong> Dado un arreglo de <em>n</em> enteros leídos desde stdin, imprime su suma y su promedio (como decimal).</p>
+            <p><strong>Concepto practicado:</strong> Lectura de arreglos, bucle <code>for</code>, tipos <code>int</code> vs <code>double</code>.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Recuerda hacer el cast antes de dividir: <code>(double)suma / n</code>. Si divides dos enteros obtendrás un entero.</div>
+          </article>
+
+          <!-- Ejercicio 2 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 02</p>
+            <div><span class="tag tag-green">Strings</span><span class="tag tag-green">Condicionales</span></div>
+            <h3>¿Es palíndromo?</h3>
+            <p><strong>Objetivo:</strong> Lee una cadena de texto y determina si es palíndromo (se lee igual al derecho y al revés). Ignora mayúsculas/minúsculas.</p>
+            <p><strong>Concepto practicado:</strong> Recorrido de cadenas, índices desde ambos extremos, <code>tolower()</code>.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Usa dos índices: <code>i = 0</code> e <code>j = s.size()-1</code>. Avanza ambos hacia el centro mientras <code>s[i] == s[j]</code>. Si se cruzan sin diferencias, es palíndromo.</div>
+          </article>
+
+          <!-- Ejercicio 3 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 03</p>
+            <div><span class="tag tag-green">Matemáticas</span><span class="tag tag-green">Bucles</span></div>
+            <h3>Números primos hasta N</h3>
+            <p><strong>Objetivo:</strong> Imprime todos los números primos menores o iguales a N usando la Criba de Eratóstenes.</p>
+            <p><strong>Concepto practicado:</strong> Algoritmos con arreglos booleanos, cribas, eficiencia básica.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Declara <code>bool primo[N+1]</code> inicializado en <code>true</code>. Por cada número <em>p</em> primo (no marcado como falso), marca sus múltiplos desde <em>p²</em> hasta N como <code>false</code>.</div>
+          </article>
+
+          <!-- Ejercicio 4 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 04</p>
+            <div><span class="tag tag-green">Recursión</span><span class="tag tag-green">Funciones</span></div>
+            <h3>Fibonacci iterativo vs recursivo</h3>
+            <p><strong>Objetivo:</strong> Implementa una función Fibonacci recursiva y otra iterativa. Para n = 40, mide (informalmente) cuál es más rápida y razona el porqué.</p>
+            <p><strong>Concepto practicado:</strong> Recursión, árbol de llamadas, introducción a memoización.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">La versión recursiva naive recalcula los mismos valores muchas veces: fib(5) llama a fib(4) y fib(3), y fib(4) vuelve a llamar a fib(3). Eso es exponencial. La iterativa es O(n).</div>
+          </article>
+
+          <!-- Ejercicio 5 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 05</p>
+            <div><span class="tag tag-green">Arrays</span><span class="tag tag-green">Búsqueda</span></div>
+            <h3>Elemento mayoritario</h3>
+            <p><strong>Objetivo:</strong> Dado un arreglo de n enteros, determina si existe un elemento que aparece más de n/2 veces (elemento mayoritario). Si existe, imprímelo; si no, imprime "Ninguno".</p>
+            <p><strong>Concepto practicado:</strong> Frecuencias, uso de <code>map</code> o arreglo auxiliar.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Solución simple: usa un <code>unordered_map&lt;int,int&gt;</code> para contar frecuencias en O(n). Luego recorre el mapa buscando el elemento con frecuencia mayor a n/2.</div>
+          </article>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             EJERCICIOS INTERMEDIOS (6-10)
+        ════════════════════════════════════════════════════ -->
+        <section id="ejercicios-medio" aria-labelledby="ej-medio-title">
+          <p class="section-label">Nivel intermedio</p>
+          <h2 id="ej-medio-title">Ejercicios intermedios (6 – 10)</h2>
+          <p>
+            Estos ejercicios requieren combinar más de una idea o estructura. Tómate el tiempo necesario:
+            si te atascas, regresa a la guía o consulta las pistas.
+          </p>
+
+          <!-- Ejercicio 6 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 06</p>
+            <div><span class="tag tag-orange">Búsqueda binaria</span><span class="tag tag-orange">Arrays</span></div>
+            <h3>Búsqueda binaria en arreglo ordenado</h3>
+            <p><strong>Objetivo:</strong> Implementa búsqueda binaria sin usar <code>std::binary_search</code>. El programa debe leer un arreglo ordenado de n enteros y responder q consultas: para cada consulta indica si el número existe y en qué índice.</p>
+            <p><strong>Concepto practicado:</strong> Búsqueda binaria, índices <code>izq</code> / <code>der</code> / <code>mid</code>.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Calcula el punto medio como <code>mid = izq + (der - izq) / 2</code> para evitar overflow. Si <code>arr[mid] == objetivo</code>, retorna <code>mid</code>. Si <code>arr[mid] < objetivo</code>, mueve <code>izq = mid + 1</code>. Si no, mueve <code>der = mid - 1</code>.</div>
+          </article>
+
+          <!-- Ejercicio 7 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 07</p>
+            <div><span class="tag tag-orange">Ordenamiento</span><span class="tag tag-orange">Divide y vencerás</span></div>
+            <h3>Implementar Merge Sort</h3>
+            <p><strong>Objetivo:</strong> Implementa Merge Sort desde cero en C++ y ordena un arreglo de n enteros. Verifica que el resultado sea correcto comparándolo con <code>std::sort</code>.</p>
+            <p><strong>Concepto practicado:</strong> Recursión, divide y vencerás, complejidad O(n log n).</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Divide el arreglo en dos mitades con índice <code>mid = (izq + der) / 2</code>. Llama recursivamente a mergeSort para ambas mitades. Luego fusiona: usa dos índices para recorrer ambas mitades y copia el menor a un arreglo temporal.</div>
+          </article>
+
+          <!-- Ejercicio 8 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 08</p>
+            <div><span class="tag tag-orange">Stack</span><span class="tag tag-orange">Cadenas</span></div>
+            <h3>Paréntesis balanceados</h3>
+            <p><strong>Objetivo:</strong> Dado un string con <code>(</code>, <code>)</code>, <code>[</code>, <code>]</code>, <code>{</code>, <code>}</code>, determina si los paréntesis están correctamente balanceados y anidados.</p>
+            <p><strong>Concepto practicado:</strong> Pilas (<code>std::stack</code>), recorrido de cadenas.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Usa una <code>stack&lt;char&gt;</code>. Al encontrar un paréntesis de apertura, apílalo. Al encontrar uno de cierre, verifica que el tope de la pila sea el correspondiente de apertura; si no, no está balanceado. Al final, la pila debe estar vacía.</div>
+          </article>
+
+          <!-- Ejercicio 9 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 09</p>
+            <div><span class="tag tag-orange">Grafos</span><span class="tag tag-orange">BFS</span></div>
+            <h3>Laberinto: camino más corto</h3>
+            <p><strong>Objetivo:</strong> Dado un laberinto como una grilla de 0s (libre) y 1s (muro), encuentra la longitud del camino más corto desde la celda inicial (0,0) hasta la celda destino (n-1, m-1). Si no existe camino, imprime -1.</p>
+            <p><strong>Concepto practicado:</strong> BFS en grillas, <code>queue</code>, arreglo de visitados.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Usa BFS con una <code>queue&lt;pair&lt;int,int&gt;&gt;</code>. Empieza por (0,0) con distancia 0. Por cada celda, explora las 4 vecinas (arriba, abajo, izquierda, derecha) que sean 0 y no visitadas. Cuando llegas a (n-1, m-1), la distancia actual es la respuesta.</div>
+          </article>
+
+          <!-- Ejercicio 10 -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Ejercicio 10</p>
+            <div><span class="tag tag-orange">Hash</span><span class="tag tag-orange">Frecuencias</span></div>
+            <h3>Dos sumas (Two Sum)</h3>
+            <p><strong>Objetivo:</strong> Dado un arreglo de n enteros y un valor objetivo T, encuentra dos índices i, j (i ≠ j) tales que <code>arr[i] + arr[j] == T</code>. Si no existen, indica que no hay solución. Implementa la solución en O(n).</p>
+            <p><strong>Concepto practicado:</strong> <code>unordered_map</code>, complemento: <code>T - arr[i]</code>.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Recorre el arreglo. Por cada elemento <code>arr[i]</code>, calcula su complemento <code>c = T - arr[i]</code>. Busca <code>c</code> en un <code>unordered_map</code> que mapea valor → índice. Si está, encontraste la pareja. Si no, inserta <code>arr[i]</code> → <code>i</code> en el mapa y continúa.</div>
+          </article>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════
+             RETOS FINALES
+        ════════════════════════════════════════════════════ -->
+        <section id="retos" aria-labelledby="retos-title">
+          <p class="section-label">Desafío</p>
+          <h2 id="retos-title">Retos finales (nivel avanzado)</h2>
+          <p>
+            Estos tres retos combinan múltiples conceptos. No tienen solución trivial: necesitan diseño
+            cuidadoso, elección de estructuras y análisis de complejidad. Tómate tu tiempo.
+          </p>
+
+          <!-- Reto A -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Reto A</p>
+            <div><span class="tag tag-red">Grafos</span><span class="tag tag-red">DFS</span><span class="tag tag-red">Topología</span></div>
+            <h3>Ordenamiento topológico con detección de ciclos</h3>
+            <p><strong>Objetivo:</strong> Dado un grafo dirigido de n nodos y m aristas (representando dependencias entre tareas), determina un orden de ejecución válido (topológico). Si el grafo tiene un ciclo, indica que no es posible.</p>
+            <p><strong>Restricciones:</strong> n ≤ 10⁵, m ≤ 2×10⁵. Solución esperada: O(n + m).</p>
+            <p><strong>Estructura sugerida:</strong> Lista de adyacencia (<code>vector&lt;vector&lt;int&gt;&gt;</code>), DFS con tres estados: no visitado, en proceso, terminado.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Usa DFS. Mantén tres estados: 0 = no visitado, 1 = en la pila actual, 2 = terminado. Si en el DFS llegas a un nodo con estado 1, hay un ciclo. Los nodos se agregan a la lista topológica en orden de finalización del DFS, luego se invierte el resultado.</div>
+          </article>
+
+          <!-- Reto B -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Reto B</p>
+            <div><span class="tag tag-red">DP</span><span class="tag tag-red">Programación dinámica</span></div>
+            <h3>Subsecuencia común más larga (LCS)</h3>
+            <p><strong>Objetivo:</strong> Dadas dos cadenas s1 y s2, encuentra la longitud de su subsecuencia común más larga (LCS: Longest Common Subsequence). Una subsecuencia no necesita ser contigua.</p>
+            <p><strong>Restricciones:</strong> |s1|, |s2| ≤ 1000. Solución esperada: O(|s1| × |s2|) en tiempo y espacio.</p>
+            <p><strong>Estructura sugerida:</strong> Tabla 2D de programación dinámica <code>dp[i][j]</code> = LCS de los primeros i caracteres de s1 y j de s2.</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">
+              Define <code>dp[i][j]</code> como la LCS de <code>s1[0..i-1]</code> y <code>s2[0..j-1]</code>.<br>
+              Si <code>s1[i-1] == s2[j-1]</code>: <code>dp[i][j] = dp[i-1][j-1] + 1</code>.<br>
+              Si no: <code>dp[i][j] = max(dp[i-1][j], dp[i][j-1])</code>.<br>
+              Caso base: <code>dp[i][0] = dp[0][j] = 0</code>.
+            </div>
+          </article>
+
+          <!-- Reto C -->
+          <article class="ejercicio-card">
+            <p class="ejercicio-num">Reto C</p>
+            <div><span class="tag tag-red">Grafos</span><span class="tag tag-red">Dijkstra</span><span class="tag tag-red">Priority Queue</span></div>
+            <h3>Camino más corto con pesos (Dijkstra)</h3>
+            <p><strong>Objetivo:</strong> Dado un grafo dirigido ponderado (con pesos ≥ 0), encuentra las distancias mínimas desde un nodo fuente S hacia todos los demás nodos. Imprime "INF" si un nodo no es alcanzable.</p>
+            <p><strong>Restricciones:</strong> n ≤ 10⁵, m ≤ 2×10⁵, pesos ≤ 10⁹. Solución esperada: O((n + m) log n).</p>
+            <p><strong>Estructura sugerida:</strong> Lista de adyacencia, <code>priority_queue&lt;pair&lt;long long, int&gt;, vector&lt;pair&lt;long long,int&gt;&gt;, greater&lt;&gt;&gt;</code> (min-heap).</p>
+            <button class="hint-toggle">💡 Ver pista</button>
+            <div class="hint-content">Inicializa <code>dist[S] = 0</code> y <code>dist[i] = INF</code> para el resto. Usa un min-heap con pares (distancia, nodo). En cada iteración, extrae el nodo con menor distancia actual y relaja sus vecinos: si <code>dist[u] + w(u,v) &lt; dist[v]</code>, actualiza y agrega al heap.</div>
+          </article>
+
+          <div class="callout callout-tip">
+            <p class="callout-label">💡 Recursos para practicar más</p>
+            <p>Una vez resueltos estos ejercicios, practica en plataformas de jueces en línea como Codeforces,
+            AtCoder, LeetCode o CSES Problem Set. Empieza por los problemas de nivel A y B antes de los C
+            y superiores.</p>
+          </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ════════════════════════════════════════════════════
+             FORMULARIO DE CONTACTO
+        ════════════════════════════════════════════════════ -->
+        <section id="contacto" aria-labelledby="contact-title">
+          <p class="section-label">¿Preguntas?</p>
+          <h2 id="contact-title">Contacto</h2>
+          <p>
+            Si tienes dudas sobre el contenido, encontraste un error, o simplemente quieres dejar un
+            comentario, usa este formulario.
+          </p>
+
+          <div class="callout callout-nota">
+            <p class="callout-label">📝 Nota</p>
+            <p>Formulario demostrativo: no envía datos. Los campos tienen validación en JavaScript y sirven
+            para ilustrar buenas prácticas de formularios web accesibles.</p>
+          </div>
+
+          <form id="contact-form" novalidate aria-label="Formulario de contacto">
+            <div class="form-group">
+              <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="f-nombre"
+                name="nombre"
+                autocomplete="name"
+                placeholder="Tu nombre"
+                aria-required="true"
+                aria-describedby="e-nombre">
+              <p class="field-error" id="e-nombre" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="f-correo">Correo electrónico <span aria-hidden="true">*</span></label>
+              <input
+                type="email"
+                id="f-correo"
+                name="correo"
+                autocomplete="email"
+                placeholder="tu@correo.com"
+                aria-required="true"
+                aria-describedby="e-correo">
+              <p class="field-error" id="e-correo" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="f-mensaje">Mensaje <span aria-hidden="true">*</span></label>
+              <textarea
+                id="f-mensaje"
+                name="mensaje"
+                placeholder="Escribe tu duda, sugerencia o comentario…"
+                aria-required="true"
+                aria-describedby="e-mensaje"></textarea>
+              <p class="field-error" id="e-mensaje" role="alert" aria-live="polite"></p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar mensaje →</button>
+            <p class="form-note">* Campos obligatorios. Formulario demostrativo: no envía datos.</p>
+
+            <!-- Toast de éxito -->
+            <div id="form-toast" role="status" aria-live="polite">
+              ✅ <strong>¡Gracias!</strong> Este formulario es demostrativo y no envía datos, pero tu mensaje está listo. ¡Mucho éxito con tus estudios!
+            </div>
+          </form>
+        </section>
+
+      </div><!-- /.content-wrapper -->
+    </main>
+  </div><!-- /.layout -->
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="historia.html">Guía completa</a></li>
+          <li><a href="contacto.html">Ejercicios y contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ejercicios por nivel</h4>
+        <ul>
+          <li><a href="#ejercicios">Básicos (1–5)</a></li>
+          <li><a href="#ejercicios-medio">Intermedios (6–10)</a></li>
+          <li><a href="#retos">Retos avanzados (A–C)</a></li>
+          <li><a href="#contacto">Formulario de contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Fuentes de referencia</h4>
+        <ul>
+          <li>Cormen et al. — Introduction to Algorithms (CLRS)</li>
+          <li>Knuth — The Art of Computer Programming</li>
+          <li>Sedgewick & Wayne — Algorithms</li>
+          <li>MIT OpenCourseWare · Stanford CS</li>
+          <li>cp-algorithms.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>Proyecto académico de algoritmia — HTML/CSS/JS puro</span>
+      <span>Derechos Reservados</span>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Volver al inicio">↑</button>
+  <script src="app.js"></script>
+</body>
+</html>
