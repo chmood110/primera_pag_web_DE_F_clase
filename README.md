@@ -1,4 +1,4 @@
-# Algoritmia sin estrés — Guía de algoritmia en C y C++ (HTML/CSS/JS local)
+#  Guía de algoritmia en C y C++ (HTML/CSS/JS local)
 
 Sitio web estático orientado a estudio, con estética tipo documentación y enfoque “bajo estrés”. Incluye fundamentos, guía completa (C/C++/estructuras/algoritmos) y ejercicios progresivos con pistas y validación de formulario. **Sin frameworks** y sin dependencias externas.
 
